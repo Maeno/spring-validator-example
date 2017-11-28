@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/3.2.1/jquery.min.js"
+            th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+</head>
+<body>
+<div class="text-center">
+</div>
+<div class="container" style="width: 300px; height: 280px;">
+    <div class="well">
+        <form th:action="@{register}" method="POST" th:object="${registerForm}">
+
+            <div class="form-group">
+                <label for="name">Name: </label>
+                <input type="text" class="form-control" id="name" name="name"
+                       autofocus="true"/>
+                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color:#ff0000;">Name Error</span>
+            </div>
+            <div class="form-group">
+                <label for="age">Age: </label>
+                <input type="number" class="form-control" id="age" name="age"
+                       autofocus="true"/>
+                <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}" style="color:#ff0000;">Age Error</span>
+            </div>
+            <div class="form-group">
+                <label for="email">email: </label>
+                <input type="text" class="form-control" id="email" name="email"
+                       autofocus="true"/>
+                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color:#ff0000;">Email Error</span>
+            </div>
+            <div class="form-group">
+                <label for="confirmEmail">ConfirmEmail: </label>
+                <input type="text" class="form-control" id="confirmEmail" name="confirmEmail"
+                       autofocus="true"/>
+                <span th:if="${#fields.hasErrors('confirmEmail')}" th:errors="*{confirmEmail}" style="color:#ff0000;">ConfirmEmail Error</span>
+            </div>
+
+            <input type="submit" class="btn btn-success" value="register"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>
